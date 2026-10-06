@@ -1,0 +1,26 @@
+import type { Metadata } from 'next';
+import ProductCard from '@/components/ProductCard';
+import { getProducts } from '@/lib/products/repository';
+
+export const metadata: Metadata = { title: 'Produkty' };
+
+export default async function ProductListPage() {
+    const products = await getProducts({ sort: 'name' });
+
+    return (
+        <>
+            <h1>Produkty</h1>
+            <p>Sortowanie: nazwa A→Z. Liczba produktów: {products.length}.</p>
+
+            {products.length === 0 ? (
+                <p className="status-box" role="status">Brak produktów do wyświetlenia.</p>
+            ) : (
+                <ul className="product-grid">
+                    {products.map((p) => (
+                        <ProductCard key={p.id} product={p} />
+                    ))}
+                </ul>
+            )}
+        </>
+    );
+}
