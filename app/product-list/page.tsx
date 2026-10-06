@@ -5,6 +5,9 @@ import { getProducts } from '@/lib/products/repository';
 export const metadata: Metadata = { title: 'Produkty' };
 
 export default async function ProductListPage() {
+
+    //throw new Error('TEST: wymuszona awaria katalogu');
+
     const products = await getProducts({ sort: 'name' });
 
     return (
