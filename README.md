@@ -27,3 +27,12 @@ Dokumentacja: Next.js (Layouts and Pages, Server and Client Components, Error Ha
 
 ## Ograniczenia
 JSON zamiast bazy, brak trwałości, cache w pamięci procesu, brak filtrów w URL, brak szczegółów produktu, brak paginacji (100 kart na jednej stronie).
+
+## Rozszerzenie: Read-only API
+`GET /api/products?type=cpu|gpu|ram|disk&sort=name|date&availability=available|unavailable`
+- 200 + tablica produktów (również pusta `[]` dla poprawnego zapytania bez wyników),
+- 400 + `{ error, details }` dla błędnej wartości parametru,
+- 500 + ogólny komunikat przy awarii repozytorium (szczegóły tylko w logu serwera).
+Route Handler i strona /product-list korzystają z tego samego modułu `lib/products/repository.ts`;
+strona nie wykonuje żądania HTTP do własnego API.
+Ograniczenia: brak paginacji, brak uwierzytelniania, nieznane parametry są ignorowane.
