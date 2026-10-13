@@ -2,11 +2,20 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProductById } from '@/lib/products/repository';
+import { getProductById, getProducts } from '@/lib/products/repository';
 import { parseProductId } from '@/lib/products/id';
-import { TYPE_LABELS, formatPrice, formatDate } from '@/lib/products/format';
+import { TYPE_LABELS, formatPrice, formatDate } from '@/lib/products/format'
 
 type Props = { params: Promise<{ id: string }> };
+
+export async function generateStaticParams() {
+    const products = await getProducts({ sort: 'name' });
+    return products.filter((p) => p.id <= 10).map((p) => ({ id: String(p.id) }));
+}
+
+export const dynamicParams = true;
+
+//export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
