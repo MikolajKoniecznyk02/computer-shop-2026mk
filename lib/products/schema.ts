@@ -8,11 +8,11 @@ export const productSchema = z.object({
   code: z.string().regex(/^[A-Z0-9]{10}$/, 'code: 10 wielkich liter ASCII lub cyfr'),
   name: z.string().trim().min(1),
   type: z.enum(PRODUCT_TYPES),
-  price: z.number().int().nonnegative(), // grosze
+  price: z.number().int().nonnegative(),
   amount: z.number().int().nonnegative(),
   description: z.string(),
-  date: z.iso.datetime(), // ISO 8601, UTC (Z)
-  image: z.string().regex(/^\/images\/products\/[\w-]+\.webp$/),
+  date: z.iso.datetime(),
+  image: z.string().regex(/^\/images\/products\/[\w-]+\.png$/),
 });
 
 export type Product = z.infer<typeof productSchema>;

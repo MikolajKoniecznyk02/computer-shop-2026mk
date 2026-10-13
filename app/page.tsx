@@ -6,7 +6,7 @@ export default function HomePage() {
         Projekt realizowany w ramach przedmiotu Programowanie BackEnd (Politechnika Krakowska,
         Katedra Informatyki Stosowanej M-7). Aplikacja jest rozwijana na kolejnych laboratoriach.
       </p>
-      <p>Autor: <strong>Imię Nazwisko</strong> (inicjały: XY)</p>
+      <p>Autor: <strong>Mikołaj Konieczny</strong> (inicjały: MK)</p>
     </>
   );
 }

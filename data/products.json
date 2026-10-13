@@ -8,7 +8,7 @@
     "amount": 1,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-06-06T07:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "amount": 39,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-08-25T18:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "amount": 38,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-05-29T09:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 4,
@@ -41,7 +41,7 @@
     "amount": 38,
     "description": "Dysk SSD NVMe.",
     "date": "2025-12-10T02:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "amount": 50,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-08-24T21:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "amount": 41,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-07-27T02:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "amount": 21,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-09-19T12:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "amount": 42,
     "description": "Dysk SSD NVMe.",
     "date": "2026-01-16T20:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 9,
@@ -96,7 +96,7 @@
     "amount": 0,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-02-04T19:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 10,
@@ -107,7 +107,7 @@
     "amount": 35,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-03-27T15:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 11,
@@ -118,7 +118,7 @@
     "amount": 12,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-06-30T03:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 12,
@@ -129,7 +129,7 @@
     "amount": 26,
     "description": "Dysk SSD NVMe.",
     "date": "2026-03-19T10:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 13,
@@ -140,7 +140,7 @@
     "amount": 31,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2025-11-24T22:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 14,
@@ -151,7 +151,7 @@
     "amount": 4,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-03-25T17:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 15,
@@ -162,7 +162,7 @@
     "amount": 33,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-08-05T00:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 16,
@@ -173,7 +173,7 @@
     "amount": 42,
     "description": "Dysk SSD NVMe.",
     "date": "2026-06-10T07:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 17,
@@ -184,7 +184,7 @@
     "amount": 9,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-08-03T15:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 18,
@@ -195,7 +195,7 @@
     "amount": 0,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-03-23T23:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 19,
@@ -206,7 +206,7 @@
     "amount": 11,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-03-29T11:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 20,
@@ -217,7 +217,7 @@
     "amount": 31,
     "description": "Dysk SSD NVMe.",
     "date": "2025-11-07T18:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 21,
@@ -228,7 +228,7 @@
     "amount": 25,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-04-06T15:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 22,
@@ -239,7 +239,7 @@
     "amount": 7,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-05-29T05:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 23,
@@ -250,7 +250,7 @@
     "amount": 24,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-06-11T20:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 24,
@@ -261,7 +261,7 @@
     "amount": 32,
     "description": "Dysk SSD NVMe.",
     "date": "2025-12-10T10:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 25,
@@ -272,7 +272,7 @@
     "amount": 11,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-09-22T13:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 26,
@@ -283,7 +283,7 @@
     "amount": 4,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2025-10-24T03:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 27,
@@ -294,7 +294,7 @@
     "amount": 0,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-03-08T22:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 28,
@@ -305,7 +305,7 @@
     "amount": 47,
     "description": "Dysk SSD NVMe.",
     "date": "2025-12-16T01:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 29,
@@ -316,7 +316,7 @@
     "amount": 17,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-09-30T20:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 30,
@@ -327,7 +327,7 @@
     "amount": 15,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-01-07T21:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 31,
@@ -338,7 +338,7 @@
     "amount": 47,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-07-01T11:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 32,
@@ -349,7 +349,7 @@
     "amount": 5,
     "description": "Dysk SSD NVMe.",
     "date": "2026-07-13T21:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 33,
@@ -360,7 +360,7 @@
     "amount": 20,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2025-10-14T06:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 34,
@@ -371,7 +371,7 @@
     "amount": 10,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2025-12-27T19:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 35,
@@ -382,7 +382,7 @@
     "amount": 21,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-09-08T21:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 36,
@@ -393,7 +393,7 @@
     "amount": 0,
     "description": "Dysk SSD NVMe.",
     "date": "2025-10-27T09:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 37,
@@ -404,7 +404,7 @@
     "amount": 49,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-09-11T13:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 38,
@@ -415,7 +415,7 @@
     "amount": 28,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2025-12-21T06:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 39,
@@ -426,7 +426,7 @@
     "amount": 9,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-08-20T16:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 40,
@@ -437,7 +437,7 @@
     "amount": 20,
     "description": "Dysk SSD NVMe.",
     "date": "2025-10-29T14:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 41,
@@ -448,7 +448,7 @@
     "amount": 41,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-03-04T11:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 42,
@@ -459,7 +459,7 @@
     "amount": 1,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-06-04T00:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 43,
@@ -470,7 +470,7 @@
     "amount": 20,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-07-03T19:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 44,
@@ -481,7 +481,7 @@
     "amount": 44,
     "description": "Dysk SSD NVMe.",
     "date": "2026-08-08T09:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 45,
@@ -492,7 +492,7 @@
     "amount": 0,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-09-18T08:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 46,
@@ -503,7 +503,7 @@
     "amount": 32,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-07-25T16:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 47,
@@ -514,7 +514,7 @@
     "amount": 44,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-03-15T01:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 48,
@@ -525,7 +525,7 @@
     "amount": 49,
     "description": "Dysk SSD NVMe.",
     "date": "2026-09-17T02:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 49,
@@ -536,7 +536,7 @@
     "amount": 14,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-07-04T17:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 50,
@@ -547,7 +547,7 @@
     "amount": 23,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-04-17T15:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 51,
@@ -558,7 +558,7 @@
     "amount": 45,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-02-15T20:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 52,
@@ -569,7 +569,7 @@
     "amount": 19,
     "description": "Dysk SSD NVMe.",
     "date": "2026-02-15T13:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 53,
@@ -580,7 +580,7 @@
     "amount": 4,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-02-11T15:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 54,
@@ -591,7 +591,7 @@
     "amount": 0,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-07-30T10:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 55,
@@ -602,7 +602,7 @@
     "amount": 14,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2025-10-03T05:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 56,
@@ -613,7 +613,7 @@
     "amount": 7,
     "description": "Dysk SSD NVMe.",
     "date": "2025-12-07T09:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 57,
@@ -624,7 +624,7 @@
     "amount": 15,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-09-18T21:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 58,
@@ -635,7 +635,7 @@
     "amount": 11,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-09-23T15:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 59,
@@ -646,7 +646,7 @@
     "amount": 49,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-03-04T02:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 60,
@@ -657,7 +657,7 @@
     "amount": 29,
     "description": "Dysk SSD NVMe.",
     "date": "2026-07-04T14:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 61,
@@ -668,7 +668,7 @@
     "amount": 37,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-07-13T20:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 62,
@@ -679,7 +679,7 @@
     "amount": 44,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-03-15T20:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 63,
@@ -690,7 +690,7 @@
     "amount": 0,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-08-21T15:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 64,
@@ -701,7 +701,7 @@
     "amount": 8,
     "description": "Dysk SSD NVMe.",
     "date": "2026-08-11T22:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 65,
@@ -712,7 +712,7 @@
     "amount": 9,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-07-21T21:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 66,
@@ -723,7 +723,7 @@
     "amount": 44,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-08-02T09:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 67,
@@ -734,7 +734,7 @@
     "amount": 27,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-05-05T12:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 68,
@@ -745,7 +745,7 @@
     "amount": 30,
     "description": "Dysk SSD NVMe.",
     "date": "2025-10-23T20:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 69,
@@ -756,7 +756,7 @@
     "amount": 35,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-06-12T03:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 70,
@@ -767,7 +767,7 @@
     "amount": 22,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-03-13T05:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 71,
@@ -778,7 +778,7 @@
     "amount": 14,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-04-17T16:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 72,
@@ -789,7 +789,7 @@
     "amount": 0,
     "description": "Dysk SSD NVMe.",
     "date": "2026-07-19T14:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 73,
@@ -800,7 +800,7 @@
     "amount": 7,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-05-11T23:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 74,
@@ -811,7 +811,7 @@
     "amount": 15,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-04-08T06:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 75,
@@ -822,7 +822,7 @@
     "amount": 14,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-04-08T06:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 76,
@@ -833,7 +833,7 @@
     "amount": 20,
     "description": "Dysk SSD NVMe.",
     "date": "2026-06-19T09:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 77,
@@ -844,7 +844,7 @@
     "amount": 7,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-05-16T05:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 78,
@@ -855,7 +855,7 @@
     "amount": 14,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2025-10-28T12:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 79,
@@ -866,7 +866,7 @@
     "amount": 29,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-03-30T23:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 80,
@@ -877,7 +877,7 @@
     "amount": 32,
     "description": "Dysk SSD NVMe.",
     "date": "2025-12-14T01:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 81,
@@ -888,7 +888,7 @@
     "amount": 0,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-09-02T07:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 82,
@@ -899,7 +899,7 @@
     "amount": 6,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-05-24T16:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 83,
@@ -910,7 +910,7 @@
     "amount": 17,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-01-10T18:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 84,
@@ -921,7 +921,7 @@
     "amount": 11,
     "description": "Dysk SSD NVMe.",
     "date": "2025-10-25T07:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 85,
@@ -932,7 +932,7 @@
     "amount": 18,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-02-10T06:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 86,
@@ -943,7 +943,7 @@
     "amount": 19,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-03-14T12:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 87,
@@ -954,7 +954,7 @@
     "amount": 34,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2025-11-24T17:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 88,
@@ -965,7 +965,7 @@
     "amount": 1,
     "description": "Dysk SSD NVMe.",
     "date": "2026-02-05T18:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 89,
@@ -976,7 +976,7 @@
     "amount": 26,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-09-06T02:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 90,
@@ -987,7 +987,7 @@
     "amount": 0,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-04-22T11:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 91,
@@ -998,7 +998,7 @@
     "amount": 9,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-02-07T01:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 92,
@@ -1009,7 +1009,7 @@
     "amount": 38,
     "description": "Dysk SSD NVMe.",
     "date": "2026-04-12T13:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 93,
@@ -1020,7 +1020,7 @@
     "amount": 31,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2026-06-03T20:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 94,
@@ -1031,7 +1031,7 @@
     "amount": 3,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-07-01T02:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 95,
@@ -1042,7 +1042,7 @@
     "amount": 15,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2025-11-09T17:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 96,
@@ -1053,7 +1053,7 @@
     "amount": 5,
     "description": "Dysk SSD NVMe.",
     "date": "2026-05-11T18:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   },
   {
     "id": 97,
@@ -1064,7 +1064,7 @@
     "amount": 44,
     "description": "Procesor do komputerów stacjonarnych.",
     "date": "2025-11-14T21:00:00Z",
-    "image": "/images/products/cpu.webp"
+    "image": "/images/products/cpu.png"
   },
   {
     "id": 98,
@@ -1075,7 +1075,7 @@
     "amount": 19,
     "description": "Karta graficzna do gier i pracy z grafiką.",
     "date": "2026-06-14T11:00:00Z",
-    "image": "/images/products/gpu.webp"
+    "image": "/images/products/gpu.png"
   },
   {
     "id": 99,
@@ -1086,7 +1086,7 @@
     "amount": 0,
     "description": "Pamięć operacyjna DDR5.",
     "date": "2026-05-17T22:00:00Z",
-    "image": "/images/products/ram.webp"
+    "image": "/images/products/ram.png"
   },
   {
     "id": 100,
@@ -1097,6 +1097,6 @@
     "amount": 35,
     "description": "Dysk SSD NVMe.",
     "date": "2026-02-07T01:00:00Z",
-    "image": "/images/products/disk.webp"
+    "image": "/images/products/disk.png"
   }
 ]
