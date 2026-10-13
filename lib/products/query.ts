@@ -4,7 +4,7 @@ export type SortKey = 'name' | 'date';
 export type Availability = 'available' | 'unavailable';
 
 export type ProductQuery = {
-    sort?: SortKey;            // name: A→Z, date: od najnowszych
+    sort?: SortKey;           
     availability?: Availability;
     type?: ProductType;
 };
@@ -21,8 +21,8 @@ export function queryProducts(products: readonly Product[], q: ProductQuery = {}
         const primary =
             sort === 'name'
                 ? a.name.localeCompare(b.name, 'pl')
-                : b.date.localeCompare(a.date); // ISO UTC sortuje się leksykograficznie
-        return primary !== 0 ? primary : a.id - b.id; // remis: rosnąco po id
+                : b.date.localeCompare(a.date); 
+        return primary !== 0 ? primary : a.id - b.id; 
     });
-    return result; // pusty wynik = pusta tablica, bez wyjątku
+    return result; 
 }

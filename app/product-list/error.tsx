@@ -5,12 +5,12 @@ import { useEffect } from 'react';
 type Props = {
     error: Error & { digest?: string };
     reset: () => void;
-    unstable_retry?: () => void; // nowsze API – sprawdź dokumentację 16.3
+    unstable_retry?: () => void;
 };
 
 export default function ProductListError({ error, reset, unstable_retry }: Props) {
     useEffect(() => {
-        console.error(error); // w produkcji message jest ukrywany, zostaje digest
+        console.error(error);
     }, [error]);
 
     const retry = unstable_retry ?? reset;

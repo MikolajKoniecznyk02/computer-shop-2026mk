@@ -11,17 +11,16 @@ Dane: `npm run generate:data` (ziarno 20261001), grafiki: `npm run generate:imag
 (krótki opis: app/, components/, lib/products/{schema,query,repository}.ts, data/, scripts/)
 
 ## Decyzje
-- price w groszach, wyświetlane w zł przez Intl.NumberFormat.
-- Sortowanie: nazwa A→Z (pl), data malejąco; remis: id rosnąco. Brak produktu: null.
+- cena(price) w groszach, wyświetlane w zł przez Intl.NumberFormat.
+- Sortowanie: nazwa  od A do Z, data malejąco; remis: id rosnąco. Brak produktu: null.
 - Repozytorium asynchroniczne, import 'server-only'; tylko odczyt.
 - Zagnieżdżony layout /product-list: nagłówek sekcji (użyty w Lab 07).
 
 ## Źródła i prawa do grafik
-Grafiki cpu/gpu/ram/disk.webp wygenerowane skryptem własnym – prawa: autor.
 Dokumentacja: Next.js (Layouts and Pages, Server and Client Components, Error Handling, error.js, not-found.js).
 
 ## Wyniki sprawdzeń
-(lint ✓, test ✓ n testów, build ✓, katalog / about / basket / 404 w produkcji ✓; wynik eksperymentu z awarią: dev vs build)
+(lint - 1 problem(nie użyty import) , test - 12 testów udanych, build udany, start udany)
 
 ## Odpowiedzi na pytania
 (patrz niżej)
