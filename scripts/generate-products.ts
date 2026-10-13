@@ -5,7 +5,6 @@ const SEED = 20261001;
 const COUNT = 100;
 const TYPES = ['cpu', 'gpu', 'ram', 'disk'] as const;
 
-// deterministyczny generator pseudolosowy (mulberry32)
 function mulberry32(seed: number) {
     let a = seed >>> 0;
     return () => {
@@ -57,7 +56,7 @@ const products = Array.from({ length: COUNT }, (_, idx) => {
         amount: id % 9 === 0 ? 0 : int(1, 50),             // co 9. produkt niedostępny
         description: c.desc,
         date: new Date(ms).toISOString().replace(/\.\d{3}Z$/, 'Z'),
-        image: `/images/products/${type}.webp`,
+        image: `/images/products/${type}.png`,
     };
 });
 
