@@ -1,9 +1,22 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
+import type { PrismaClient } from '@/lib/generated/prisma/client';
+import { createTestClient, resetCatalog, loadRealProducts } from '@/tests/helpers';
+import { computeNameSortKey, compareUtf8 } from '@/lib/products/sort-keys';
 
 vi.mock('server-only', () => ({}));
 
 import { NextRequest } from 'next/server';
 import { GET } from './route';
+
+
+let prisma: PrismaClient;
+beforeAll(async () => {
+    prisma = createTestClient();
+    await resetCatalog(prisma, loadRealProducts());
+});
+afterAll(async () => {
+    await prisma.$disconnect();
+});
 
 const call = (qs = '') => GET(new NextRequest(`http://localhost/api/products${qs}`));
 
@@ -20,10 +33,10 @@ describe('GET /api/products', () => {
         expect(data.every((p: { type: string }) => p.type === 'gpu')).toBe(true);
     });
 
-    it('sortowanie po nazwie rosnąco', async () => {
+    it('sortowanie po nazwie rosnąco (klucz UTF-8)', async () => {
         const data: { name: string }[] = await (await call('?sort=name')).json();
-        const names = data.map((p) => p.name);
-        expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b, 'pl')));
+        const keys = data.map((p) => computeNameSortKey(p.name));
+        expect(keys).toEqual([...keys].sort(compareUtf8));
     });
 
     it('400 dla błędnej wartości', async () => {
