@@ -1,26 +1,50 @@
 import 'server-only';
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
-import { validateProducts, type Product } from './schema';
-import { queryProducts, type ProductQuery } from './query';
+import { getPrisma } from '@/lib/db/prisma';
+import type { Prisma } from '@/lib/generated/prisma/client';
+import { PRODUCT_TYPES, type Product } from './schema';
+import type { ProductQuery } from './query';
 
-let cache: Promise<Product[]> | null = null;
+const MAX_ID = 2147483647;
 
-function load(): Promise<Product[]> {
-    cache ??= readFile(path.join(process.cwd(), 'data', 'products.json'), 'utf-8')
-        .then((text) => validateProducts(JSON.parse(text)))
-        .catch((err) => {
-            cache = null; //ponowienie po błędzie
-            throw err;
-        });
-    return cache;
+const include = { category: { select: { code: true } } } satisfies Prisma.ProductInclude;
+type Row = Prisma.ProductGetPayload<{ include: typeof include }>;
+
+//transfer modelu bazy na model domenowy.
+function toDomain(row: Row): Product {
+    const type = PRODUCT_TYPES.find((t) => t === row.category.code);
+    if (!type) throw new Error(`Nieznany kod kategorii w bazie: ${row.category.code}`);
+    return {
+        id: row.id,
+        code: row.code,
+        name: row.name,
+        type,
+        price: row.price,
+        amount: row.amount,
+        description: row.description,
+        date: row.date.toISOString(),
+        image: row.image,
+    };
 }
 
 export async function getProducts(query: ProductQuery = {}): Promise<Product[]> {
-    return queryProducts(await load(), query);
+    const where: Prisma.ProductWhereInput = {
+        ...(query.type ? { category: { code: query.type } } : {}),
+        ...(query.availability === 'available' ? { amount: { gt: 0 } } : {}),
+        ...(query.availability === 'unavailable' ? { amount: 0 } : {}),
+    };
+
+    const orderBy: Prisma.ProductOrderByWithRelationInput[] =
+        (query.sort ?? 'name') === 'date'
+            ? [{ date: 'desc' }, { id: 'asc' }]
+            : [{ nameSortKey: 'asc' }, { id: 'asc' }];
+
+    const rows = await getPrisma().product.findMany({ where, orderBy, include });
+    return rows.map(toDomain);
 }
 
+//Produkt albo null. Awaria bazy rzuca wyjątek.
 export async function getProductById(id: number): Promise<Product | null> {
-    const all = await load();
-    return all.find((p) => p.id === id) ?? null;
+    if (!Number.isSafeInteger(id) || id < 1 || id > MAX_ID) return null; // przed zapytaniem
+    const row = await getPrisma().product.findUnique({ where: { id }, include });
+    return row ? toDomain(row) : null;
 }
