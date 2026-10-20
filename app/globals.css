@@ -126,6 +126,10 @@ a {
   color: var(--ink);
 }
 
+.nav-list a[aria-current='page'] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
 
 main {
   flex: 1;
@@ -309,4 +313,68 @@ button:hover {
   * {
     transition: none !important;
   }
+
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  font-family: var(--font-ui);
+}
+
+.field label {
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+.field select {
+  font: inherit;
+  padding: .5rem;
+  min-width: 10rem;
+}
+
+.field.actions {
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-box.warning {
+  margin-bottom: 1rem;
+  border-left-color: #b45309;
+}
+
+.status-box ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.detail-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: .5rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.detail-list dt {
+  font-weight: 600;
+  font-family: var(--font-ui);
+}
+
+.detail-list dd {
+  margin: 0;
 }

@@ -60,3 +60,16 @@ describe('repozytorium', () => {
     it('znane id → produkt', async () => expect((await getProductById(1))?.id).toBe(1));
     it('zwraca katalog', async () => expect((await getProducts()).length).toBe(100));
 });
+
+describe('filtry łącznie na rzeczywistych danych', () => {
+    it('type + stock + sort działają razem', async () => {
+        const r = await getProducts({ type: 'disk', availability: 'unavailable', sort: 'date' });
+        expect(r.length).toBeGreaterThan(0);
+        expect(r.every((p) => p.type === 'disk' && p.amount === 0)).toBe(true);
+        const dates = r.map((p) => p.date);
+        expect(dates).toEqual([...dates].sort().reverse());
+    });
+    it('kombinacja bez wyników → pusta tablica', async () => {
+        expect(await getProducts({ type: 'cpu', availability: 'unavailable' })).toEqual([]);
+    });
+});

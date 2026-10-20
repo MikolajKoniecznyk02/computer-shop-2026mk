@@ -53,7 +53,7 @@ const products = Array.from({ length: COUNT }, (_, idx) => {
         name: `${pick(c.brands)} ${pick(c.series)} ${int(1000, 9999)}`,
         type,
         price: int(c.price[0], c.price[1]),                // grosze
-        amount: id % 9 === 0 ? 0 : int(1, 50),             // co 9. produkt niedostępny
+        amount: id % 8 === 0 ? 0 : int(1, 50),             //co 8. produkt niedostępny(zawsze kategoria disk)
         description: c.desc,
         date: new Date(ms).toISOString().replace(/\.\d{3}Z$/, 'Z'),
         image: `/images/products/${type}.png`,
