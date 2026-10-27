@@ -4,7 +4,6 @@ import { PrismaClient } from '@/lib/generated/prisma/client';
 
 const globalForPrisma = globalThis as unknown as { __prisma?: PrismaClient };
 
-/** Jedna instancja na proces; przeżywa przeładowania modułów w dev. Połączenie powstaje leniwie. */
 export function getPrisma(): PrismaClient {
     if (!globalForPrisma.__prisma) {
         const connectionString = process.env.DATABASE_URL;
