@@ -41,11 +41,11 @@ CREATE INDEX "Product_date_id_idx" ON "Product"("date" DESC, "id");
 -- AddForeignKey
 ALTER TABLE "Product" ADD CONSTRAINT "Product_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
--- Porównywanie bajtów UTF-8 dla klucza sortowania (spójne z Buffer.compare)
+-- Porównywanie bajtów UTF-8 dla klucza sortowania
 ALTER TABLE "Product"
   ALTER COLUMN "nameSortKey" TYPE TEXT COLLATE "C";
 
--- Ograniczenia CHECK (Prisma 7 ich nie deklaruje w schemacie)
+-- Ograniczenia CHECK
 ALTER TABLE "Product"
   ADD CONSTRAINT "product_id_positive" CHECK ("id" > 0);
 

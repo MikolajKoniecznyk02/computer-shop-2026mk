@@ -3,7 +3,6 @@ import type { Product } from '../lib/products/schema';
 
 type Status = 'PENDING' | 'PAID' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED';
 
-/** Fikcyjne konto z kompletem pól wymaganych przez Better Auth (bez hasła). */
 export const DEMO_USER = {
     id: 'user_demo_1',
     name: 'Jan Demo',
@@ -12,8 +11,8 @@ export const DEMO_USER = {
     image: null,
 };
 
-/** [productId, quantity] */
 const CART: readonly (readonly [number, number])[] = [
+    //[productId, quantity]
     [3, 2],
     [10, 1],
 ];
@@ -30,7 +29,7 @@ const ORDERS: readonly {
         { number: 'ZAM-2026-0004', status: 'CANCELLED', createdAt: '2026-10-12T19:45:00.000Z', items: [[20, 1], [33, 1], [47, 4]] },
     ];
 
-/** Idempotentny import konta, koszyka i zamówień w jednej transakcji. Nie kasuje innych danych. */
+//import danych demo: użytkownik, koszyk, zamówienia i pozycje zamówień
 export async function importDemo(prisma: PrismaClient, products: readonly Product[]) {
     const byId = new Map(products.map((p) => [p.id, p]));
     const need = (id: number): Product => {
