@@ -5,9 +5,15 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '../lib/generated/prisma/client';
 import { validateProducts } from '../lib/products/schema';
 import { importCatalog } from './imports';
+import { importDemo } from './demo';
+
+
 
 async function main() {
     const connectionString = process.env.DATABASE_URL;
+
+
+
     if (!connectionString) throw new Error('Brak zmiennej DATABASE_URL');
 
     const prisma = new PrismaClient({ adapter: new PrismaPg({ connectionString }) });
@@ -15,7 +21,8 @@ async function main() {
         const raw = JSON.parse(await readFile(path.join(process.cwd(), 'data', 'products.json'), 'utf-8'));
         const products = validateProducts(raw); // cały plik zwalidowany PRZED jakimkolwiek zapisem
         await importCatalog(prisma, products);
-        console.log(`Seed OK: 4 kategorie, ${products.length} produktów`);
+        await importDemo(prisma, products);
+        console.log(`Seed OK: 4 kategorie, ${products.length} produktów, konto demo, koszyk, 4 zamówienia`);
     } finally {
         await prisma.$disconnect();
     }

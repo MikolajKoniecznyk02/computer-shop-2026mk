@@ -4,6 +4,7 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '@/lib/generated/prisma/client';
 import { validateProducts, type Product } from '@/lib/products/schema';
 import { importCatalog } from '@/prisma/imports';
+import { DEMO_USER } from '@/prisma/demo';
 
 function assertTestDatabase(url: string) {
     const name = new URL(url).pathname.slice(1);
@@ -33,3 +34,21 @@ export const make = (o: Partial<Product>): Product => ({
     id: 1, code: 'AAAAAAAAA1', name: 'A', type: 'cpu', price: 100, amount: 1,
     description: 'x', date: '2026-01-01T10:00:00Z', image: '/images/products/cpu.webp', ...o,
 });
+
+/** Czyści koszyki, zamówienia, użytkowników i produkty (tylko BAZA TESTOWA), potem importuje podany katalog. */
+export async function resetAll(
+    prisma: PrismaClient,
+    products: readonly Product[] = [
+        make({ id: 1, code: 'AAAAAAAAA1', name: 'A', price: 1000 }),
+        make({ id: 2, code: 'AAAAAAAAA2', name: 'B', price: 2500 }),
+    ],
+) {
+    await prisma.orderItem.deleteMany();
+    await prisma.order.deleteMany();
+    await prisma.cartItem.deleteMany();
+    await prisma.cart.deleteMany();
+    await prisma.user.deleteMany();
+    await resetCatalog(prisma, products);
+}
+
+export const createDemoUser = (prisma: PrismaClient) => prisma.user.create({ data: DEMO_USER });

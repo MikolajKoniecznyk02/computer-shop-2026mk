@@ -12,6 +12,9 @@ async function main() {
             prisma.product.count(),
             prisma.product.aggregate({ _sum: { price: true, amount: true } }),
             prisma.product.findMany({ where: { id: { in: [1, 8, 100] } }, orderBy: { id: 'asc' } }),
+            prisma.user.count(), prisma.cart.count(), prisma.cartItem.count(),
+            prisma.order.count(), prisma.orderItem.count(),
+            prisma.order.aggregate({ _sum: { totalPrice: true } }),
         ]);
         console.log({ categories, products, sumPrice: sums._sum.price, sumAmount: sums._sum.amount });
         console.table(sample.map((p) => ({ id: p.id, code: p.code, name: p.name, price: p.price, amount: p.amount, date: p.date.toISOString() })));
