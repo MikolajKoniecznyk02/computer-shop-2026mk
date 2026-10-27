@@ -5,15 +5,18 @@ import { notFound } from 'next/navigation';
 import { getProductById, getProducts } from '@/lib/products/repository';
 import { parseProductId } from '@/lib/products/id';
 import { TYPE_LABELS, formatPrice, formatDate } from '@/lib/products/format'
+import { connection } from 'next/server';
 
 type Props = { params: Promise<{ id: string }> };
 
-export async function generateStaticParams() {
-    const products = await getProducts({ sort: 'name' });
-    return products.filter((p) => p.id <= 10).map((p) => ({ id: String(p.id) }));
-}
 
-export const dynamicParams = true;
+
+//export async function generateStaticParams() {
+//    const products = await getProducts({ sort: 'name' });
+//    return products.filter((p) => p.id <= 10).map((p) => ({ id: String(p.id) }));
+//}
+
+//export const dynamicParams = true;
 
 //export const dynamic = 'force-dynamic';
 
@@ -26,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     //test awarii szczegółów
     //if (id === 5) throw new Error('TEST: awaria metadanych');
 
-    // Bez try/catch: awaria repozytorium MA pozostać awarią, a nie „brakiem produktu”.
+    await connection();
     const product = await getProductById(id);
     return { title: product ? product.name : 'Nie znaleziono produktu' };
 }
@@ -40,6 +43,7 @@ export default async function ProductPage({ params }: Props) {
     // test awarii metadanych
     //if (id === 5) throw new Error('TEST: awaria szczegółów');
 
+    await connection();
     const product = await getProductById(id);
     if (product === null) notFound();
 

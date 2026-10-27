@@ -1,0 +1,110 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  code     String    @unique
+  name     String
+  products Product[]
+}
+
+model Product {
+  id          Int      @id
+  code        String   @unique @db.VarChar(10)
+  name        String
+  nameSortKey String   @db.Text
+  description String
+  image       String
+  price       Int
+  amount      Int
+  date        DateTime @db.Timestamptz(3)
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  cartItems CartItem[]
+  orderItems OrderItem[]
+  @@index([categoryId])
+  @@index([nameSortKey, id])
+  @@index([date(sort: Desc), id])
+}
+
+model User {
+  id            String   @id
+  name          String
+  email         String   @unique
+  emailVerified Boolean  @default(false)
+  image         String?
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+  orders Order[]
+
+  cart Cart?
+}
+
+model Cart {
+  id        Int      @id @default(autoincrement())
+  userId    String   @unique
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+
+  user  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items CartItem[]
+}
+
+model CartItem {
+  id        Int @id @default(autoincrement())
+  cartId    Int
+  productId Int
+  quantity  Int
+
+  cart    Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([cartId, productId])
+  @@index([productId])
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+model Order {
+  id         Int         @id @default(autoincrement())
+  number     String      @unique
+  userId     String
+  status     OrderStatus @default(PENDING)
+  totalPrice BigInt // grosze; BigInt, bo suma wielu pozycji może przekroczyć zakres Int
+  createdAt  DateTime    @default(now()) @db.Timestamptz(3)
+
+  user  User        @relation(fields: [userId], references: [id], onDelete: Restrict)
+  items OrderItem[]
+
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+model OrderItem {
+  id          Int    @id @default(autoincrement())
+  orderId     Int
+  position    Int // numer pozycji w zamówieniu, stabilny klucz dla seeda
+  productId   Int? // SetNull: po usunięciu produktu pozycja zostaje
+  productCode String @db.VarChar(10) // snapshot
+  productName String // snapshot
+  quantity    Int
+  unitPrice   Int // snapshot ceny jednostkowej w groszach (ten sam zakres co Product.price)
+  lineTotal   BigInt // unitPrice * quantity, w groszach
+
+  order   Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@unique([orderId, position])
+  @@index([productId])
+}

@@ -42,3 +42,7 @@ next-env.d.ts
 
 # zip
 *.zip
+
+# .env.example
+!.env.example
+/lib/generated

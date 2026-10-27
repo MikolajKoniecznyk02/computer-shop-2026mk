@@ -8,6 +8,7 @@ import {
     toProductQuery,
     type SearchParams,
 } from '@/lib/products/catalog-params';
+import { connection } from 'next/server';
 
 export const metadata: Metadata = { title: 'Produkty' };
 
@@ -18,6 +19,7 @@ export default async function ProductListPage({
 }) {
     const sp = await searchParams;
     const { criteria, warnings } = parseCatalogParams(sp);
+    await connection();
     const products = await getProducts(toProductQuery(criteria));
 
     return (

@@ -1,7 +1,6 @@
 import { PRODUCT_TYPES, type ProductType } from './schema';
 import type { ProductQuery } from './query';
 
-/** Kształt obiektu searchParams z Next.js: tekst, tablica tekstów albo undefined. */
 export type SearchParams = Record<string, string | string[] | undefined>;
 
 export const TYPE_VALUES = ['all', ...PRODUCT_TYPES] as const;
@@ -28,7 +27,6 @@ function read<T extends string>(
     if (typeof raw === 'string' && (allowed as readonly string[]).includes(raw)) {
         return { value: raw as T };
     }
-    // powtórzony klucz (tablica), pusty tekst albo nieznana wartość
     return {
         value: fallback,
         warning: `Pominięto błędne ustawienie: ${label}. Użyto wartości domyślnej.`,
@@ -46,11 +44,11 @@ export function parseCatalogParams(sp: SearchParams): ParsedCatalog {
     };
 }
 
-/** Zamienia zwalidowane kryteria na zapytanie repozytorium. Nieznane nazwy parametrów nigdy tu nie docierają. */
+// Zamiana zwalidowania kryteriów na zapytania repozytorium.
 export function toProductQuery(c: CatalogCriteria): ProductQuery {
     return {
         type: c.type === 'all' ? undefined : c.type,
         availability: c.stock === 'all' ? undefined : c.stock,
-        sort: c.sort === 'newest' ? 'date' : 'name', // newest = data malejąco, remis: id rosnąco (query.ts)
+        sort: c.sort === 'newest' ? 'date' : 'name', // newest = data malejąco
     };
 }

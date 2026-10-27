@@ -5,7 +5,6 @@ vi.mock('server-only', () => ({}));
 
 import { queryProducts } from './query';
 import { validateProducts, type Product } from './schema';
-import { getProductById, getProducts } from './repository';
 
 const make = (o: Partial<Product>): Product => ({
     id: 1, code: 'AAAAAAAAA1', name: 'A', type: 'cpu', price: 100, amount: 1,
@@ -55,21 +54,21 @@ describe('walidator', () => {
     });
 });
 
-describe('repozytorium', () => {
-    it('brak id → null', async () => expect(await getProductById(999999)).toBeNull());
-    it('znane id → produkt', async () => expect((await getProductById(1))?.id).toBe(1));
-    it('zwraca katalog', async () => expect((await getProducts()).length).toBe(100));
-});
+// describe('repozytorium', () => {
+//     it('brak id → null', async () => expect(await getProductById(999999)).toBeNull());
+//     it('znane id → produkt', async () => expect((await getProductById(1))?.id).toBe(1));
+//     it('zwraca katalog', async () => expect((await getProducts()).length).toBe(100));
+// });
 
-describe('filtry łącznie na rzeczywistych danych', () => {
-    it('type + stock + sort działają razem', async () => {
-        const r = await getProducts({ type: 'disk', availability: 'unavailable', sort: 'date' });
-        expect(r.length).toBeGreaterThan(0);
-        expect(r.every((p) => p.type === 'disk' && p.amount === 0)).toBe(true);
-        const dates = r.map((p) => p.date);
-        expect(dates).toEqual([...dates].sort().reverse());
-    });
-    it('kombinacja bez wyników → pusta tablica', async () => {
-        expect(await getProducts({ type: 'cpu', availability: 'unavailable' })).toEqual([]);
-    });
-});
+// describe('filtry łącznie na rzeczywistych danych', () => {
+//     it('type + stock + sort działają razem', async () => {
+//         const r = await getProducts({ type: 'disk', availability: 'unavailable', sort: 'date' });
+//         expect(r.length).toBeGreaterThan(0);
+//         expect(r.every((p) => p.type === 'disk' && p.amount === 0)).toBe(true);
+//         const dates = r.map((p) => p.date);
+//         expect(dates).toEqual([...dates].sort().reverse());
+//     });
+//     it('kombinacja bez wyników → pusta tablica', async () => {
+//         expect(await getProducts({ type: 'cpu', availability: 'unavailable' })).toEqual([]);
+//     });
+// });

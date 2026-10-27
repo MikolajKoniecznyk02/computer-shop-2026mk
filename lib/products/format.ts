@@ -8,7 +8,7 @@ export const TYPE_LABELS: Record<ProductType, string> = {
 };
 
 const priceFormat = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN' });
-/** price jest w groszach */
+//cena w groszach -> cena w złotych z symbolem waluty
 export const formatPrice = (grosze: number) => priceFormat.format(grosze / 100);
 
 // stała strefa UTC, żeby serwer i przeglądarka pokazywały to samo
