@@ -19,5 +19,6 @@ export default defineConfig({
         fileParallelism: false, // testy dzielą jedną bazę testową
         hookTimeout: 30_000,
         testTimeout: 30_000,
+        server: { deps: { inline: [/better-auth/] } },
     },
 });
