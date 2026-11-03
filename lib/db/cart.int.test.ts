@@ -85,11 +85,10 @@ describe('pozycje koszyka', () => {
         expect(await prisma.cartItem.count()).toBe(0);
     });
 
-    it('usunięcie produktu usuwa go z koszyków, ale nie usuwa koszyka', async () => {
+    it('nie da się usunąć produktu, który jest w koszyku (Restrict)', async () => {
         const cart = await newCart();
         await prisma.cartItem.create({ data: { cartId: cart.id, productId: 1, quantity: 1 } });
-        await prisma.product.delete({ where: { id: 1 } });
-        expect(await prisma.cartItem.count()).toBe(0);
-        expect(await prisma.cart.count()).toBe(1);
+        await expect(prisma.product.delete({ where: { id: 1 } })).rejects.toThrow();
+        expect(await prisma.cartItem.count()).toBe(1);
     });
 });

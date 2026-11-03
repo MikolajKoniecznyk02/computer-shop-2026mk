@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import NavLinks from '@/components/NavLinks';
 import './globals.css';
+import UserMenu from '@/components/UserMenu';
 
 export const metadata: Metadata = {
   title: {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav aria-label="Główna nawigacja">
             <NavLinks />
           </nav>
+          <UserMenu />
         </header>
         <main id="main">{children}</main>
         <footer className="site-footer">

@@ -40,8 +40,8 @@ describe('dane demonstracyjne', () => {
         await importDemo(prisma, loadRealProducts());
         expect(await dump()).toEqual(first);
         expect(await prisma.user.count()).toBe(1);
-        expect(await prisma.cart.count()).toBe(1);
-        expect(await prisma.cartItem.count()).toBe(2);
+        expect(await prisma.cart.count()).toBe(0);
+        expect(await prisma.cartItem.count()).toBe(0);
     });
 
     it('suma zamówienia = suma pozycji, pozycja = cena * ilość', async () => {

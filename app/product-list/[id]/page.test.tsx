@@ -8,6 +8,7 @@ const { getProductById, notFound } = vi.hoisted(() => ({
 vi.mock('@/lib/products/repository', () => ({ getProductById, getProducts: vi.fn() }));
 vi.mock('next/navigation', () => ({ notFound }));
 vi.mock('next/server', () => ({ connection: async () => { } }));
+vi.mock('@/components/AddToCartButton', () => ({ default: () => null }));
 
 import ProductPage, { generateMetadata } from './page';
 

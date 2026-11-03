@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Product } from '@/lib/products/schema';
 import { TYPE_LABELS, formatPrice } from '@/lib/products/format';
+import AddToCartButton from './AddToCartButton';
 
 export default function ProductCard({ product }: { product: Product }) {
     const available = product.amount > 0;
@@ -25,6 +26,7 @@ export default function ProductCard({ product }: { product: Product }) {
                     {available ? `Dostępny (${product.amount} szt.)` : 'Niedostępny'}
                 </dd>
             </dl>
+            <AddToCartButton productId={product.id} amount={product.amount} />
         </li>
     );
 }

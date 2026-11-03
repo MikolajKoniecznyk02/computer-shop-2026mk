@@ -11,11 +11,7 @@ export const DEMO_USER = {
     image: null,
 };
 
-const CART: readonly (readonly [number, number])[] = [
-    //[productId, quantity]
-    [3, 2],
-    [10, 1],
-];
+
 
 const ORDERS: readonly {
     number: string;
@@ -45,20 +41,6 @@ export async function importDemo(prisma: PrismaClient, products: readonly Produc
                 update: { name: DEMO_USER.name, email: DEMO_USER.email, emailVerified: DEMO_USER.emailVerified, image: DEMO_USER.image },
                 create: DEMO_USER,
             });
-
-            const cart = await tx.cart.upsert({
-                where: { userId: DEMO_USER.id },
-                update: {},
-                create: { userId: DEMO_USER.id },
-            });
-            for (const [productId, quantity] of CART) {
-                need(productId);
-                await tx.cartItem.upsert({
-                    where: { cartId_productId: { cartId: cart.id, productId } },
-                    update: { quantity },
-                    create: { cartId: cart.id, productId, quantity },
-                });
-            }
 
             for (const o of ORDERS) {
                 // snapshot: ceny, nazwy i kody brane z danych wejściowych w chwili "zakupu"
