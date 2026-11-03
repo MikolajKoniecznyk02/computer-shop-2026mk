@@ -96,3 +96,38 @@ generateStaticParams
 
 ### Ograniczenia
 Dane tylko do odczytu z JSON, cache w pamięci procesu, brak paginacji, formularz wymaga kliknięcia „Zastosuj”, brak walidacji id po stronie klienta (nie jest potrzebna), prerenderowane strony nie widzą zmian danych bez buildu.
+
+## Lab 09 – uwierzytelnianie i koszyk
+
+### Wersje i konfiguracja
+better-auth 1.7.7, @better-auth/prisma-adapter 1.7.14, auth (CLI) 1.7.7 (dokładnie w lockfile). Node 24, Next.js 16.3.8, Prisma 7.x, PostgreSQL 17.
+GitHub OAuth App: homepage http://localhost:3000, callback http://localhost:3000/api/auth/callback/github, scope user:email.
+Zmienne: BETTER_AUTH_SECRET, BETTER_AUTH_URL, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, DATABASE_URL (patrz .env.example).
+Sesje w PostgreSQL, session.cookieCache wyłączone (unieważnienie sesji w bazie działa od razu).
+CSRF i sprawdzanie pochodzenia: włączone (disableCSRFCheck / disableOriginCheck nie są używane).
+
+### Migracje
+auth_cart: Session, Account, Verification (User z Lab 08 rozszerzony o relacje), CartItem -> Product: Restrict. CHECK quantity BETWEEN 1 AND 99 (migracja `cart` z Lab 08).
+Generowanie pomocnicze: npx --no-install auth generate --config auth.ts --adapter prisma --output auth.prisma (plik usunięty po scaleniu). Migracje stosuje Prisma CLI.
+
+### Kontrakt operacji (lib/cart/access.ts)
+getMyCart, addProduct(productId), setQuantity(itemId, quantity), removeItem(itemId). Żadna nie przyjmuje właściciela, ceny ani sumy.
+Właściciel ustalany w jednym miejscu: currentUserId() w lib/cart/access.ts (session.user.id z auth.api.getSession z nagłówków żądania).
+
+### Polityka ilości
+1..99 i nie więcej niż aktualny stan. Zero, ujemne, ułamki -> błąd. Koszyk nie rezerwuje towaru i nie zmienia Product.amount.
+addProduct atomowy: UPDATE ... WHERE quantity < min(99, stan) + obsługa wyścigu przy tworzeniu pozycji (P2002 -> ponów).
+Po spadku stanu pozycja jest oznaczona i można ją zmniejszyć lub usunąć. Suma liczona na serwerze w groszach z aktualnych cen.
+
+### Wyniki testów A/B
+(wklej: próba podmiany itemId, wynik, stan bazy przed i po; brak sesji; sesja usunięta w bazie)
+
+### Rozszerzenie: sesje na wielu urządzeniach
+signOut vs revokeOtherSessions vs revokeSessions, wynik testów i pokazu w dwóch profilach, wpływ cache sesji (sekcja 6.4).
+
+### Źródła
+(dokumentacja Better Auth 1.7.7: Next.js, Prisma adapter, GitHub, CLI; Next.js: Authentication, use server, revalidatePath; Prisma 7: relacje, transakcje)
+
+### Ograniczenia
+Brak checkoutu (przycisk nieaktywny), brak rezerwacji stanu, brak paginacji, tylko GitHub, brak limitu żądań (rate limit), layout czyta sesję więc strony są dynamiczne,
+awaria bazy w nagłówku daje komunikat zamiast błędu całej strony, produkcyjny URL OAuth w Lab 10.

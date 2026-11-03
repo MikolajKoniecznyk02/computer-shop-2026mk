@@ -29,6 +29,19 @@ export default function AuthControls({ user }: { user: { name: string } | null }
             >
                 {pending ? 'Wylogowywanie…' : 'Wyloguj'}
             </button>
+            <button
+                type="button"
+                disabled={pending}
+                onClick={() =>
+                    startTransition(async () => {
+                        await authClient.revokeSessions(); // wszystkie sesje tego użytkownika
+                        router.push('/');
+                        router.refresh();
+                    })
+                }
+            >
+                Wyloguj ze wszystkich urządzeń
+            </button>
         </div>
     );
 }

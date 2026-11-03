@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProductById, getProducts } from '@/lib/products/repository';
+import { getProductById } from '@/lib/products/repository';
 import { parseProductId } from '@/lib/products/id';
 import { TYPE_LABELS, formatPrice, formatDate } from '@/lib/products/format'
 import { connection } from 'next/server';
