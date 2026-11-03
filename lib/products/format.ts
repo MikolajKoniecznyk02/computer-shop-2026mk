@@ -14,3 +14,10 @@ export const formatPrice = (grosze: number) => priceFormat.format(grosze / 100);
 // stała strefa UTC, żeby serwer i przeglądarka pokazywały to samo
 const dateFormat = new Intl.DateTimeFormat('pl-PL', { dateStyle: 'long', timeZone: 'UTC' });
 export const formatDate = (iso: string) => dateFormat.format(new Date(iso));
+
+const dateTimeFormat = new Intl.DateTimeFormat('pl-PL', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+    timeZone: 'Europe/Warsaw',
+});
+export const formatDateTime = (iso: string) => dateTimeFormat.format(new Date(iso));

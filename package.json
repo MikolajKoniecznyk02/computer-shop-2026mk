@@ -20,7 +20,8 @@
     "db:stats": "tsx scripts/db-stats.ts",
     "db:set-amount": "tsx scripts/set-amount.ts",
     "db:set-price": "tsx scripts/set-price.ts",
-    "db:orders": "tsx scripts/show-orders.ts"
+    "db:orders": "tsx scripts/show-orders.ts",
+    "db:assign-demo-orders": "tsx scripts/assign-demo-orders.ts"
   },
   "dependencies": {
     "@better-auth/prisma-adapter": "1.7.14",

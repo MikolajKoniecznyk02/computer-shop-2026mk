@@ -5,14 +5,14 @@ import {
 } from './repository';
 import { fail, type CartResult, type CartView } from './types';
 import { parseIntId, parseQuantity } from './validation';
+import { currentUserId } from '@/lib/current-user';
 
 const UNAUTH = () => fail('UNAUTHENTICATED', 'Zaloguj się, aby korzystać z koszyka.');
 
-/** JEDYNE miejsce, w którym ustalany jest właściciel koszyka: session.user.id z zapytania do bazy sesji. */
-async function currentUserId(): Promise<string | null> {
-    const session = await getCurrentSession();
-    return session?.user.id ?? null;
-}
+// async function currentUserId(): Promise<string | null> {
+//     const session = await getCurrentSession();
+//     return session?.user.id ?? null;
+// }
 
 /** null = brak sesji. Brak rekordu koszyka = pusty widok i suma 0. */
 export async function getMyCart(): Promise<CartView | null> {

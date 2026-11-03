@@ -3,6 +3,7 @@ import BasketRow from '@/components/BasketRow';
 import SignInButton from '@/components/SignInButton';
 import { getMyCart } from '@/lib/cart/access';
 import { formatPrice } from '@/lib/products/format';
+import CheckoutForm from '@/components/CheckoutForm';
 
 export const metadata: Metadata = { title: 'Koszyk' };
 
@@ -40,9 +41,12 @@ export default async function BasketPage() {
             <p className="basket-total">
                 Suma: {formatPrice(cart.total)} ({cart.itemCount} szt.)
             </p>
-            <button type="button" disabled aria-describedby="checkout-note">
-                Złóż zamówienie
-            </button>
+            {cart.items.length > 0 && (
+                <CheckoutForm
+                    requestKey={crypto.randomUUID()}
+                    blocked={cart.items.some((i) => i.problem !== null)}
+                />
+            )}
             <p id="checkout-note">Składanie zamówień nie jest jeszcze dostępne.</p>
         </>
     );

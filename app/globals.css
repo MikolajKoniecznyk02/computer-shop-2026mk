@@ -471,3 +471,52 @@ button.secondary {
   color: var(--ink);
   border: 2px solid var(--ink);
 }
+
+.order-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.order-card {
+  padding: 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.order-card h2 {
+  margin: 0 0 .25rem;
+  font-size: 1.1rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+}
+
+.order-table caption {
+  text-align: left;
+  padding: .5rem 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.order-table th,
+.order-table td {
+  padding: .6rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--paper-2);
+}
+
+.checkout-form {
+  margin-top: 1rem;
+}

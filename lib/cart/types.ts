@@ -6,6 +6,8 @@ export type CartErrorCode =
     | 'NOT_FOUND'
     | 'OUT_OF_STOCK'
     | 'LIMIT'
+    | 'EMPTY_CART'
+    | 'CONFLICT'
     | 'UNAVAILABLE';
 
 export type CartResult<T = undefined> =

@@ -133,7 +133,9 @@ model Order {
 
   user  User        @relation(fields: [userId], references: [id], onDelete: Restrict)
   items OrderItem[]
-
+  requestKey String?
+  
+  @@unique([userId, requestKey])
   @@index([userId, createdAt(sort: Desc)])
 }
 
