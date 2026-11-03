@@ -14,7 +14,7 @@ export type OrderLineView = {
     code: string; // snapshot
     name: string; // snapshot
     quantity: number;
-    unitPrice: number; // grosze, snapshot
+    unitPrice: number; // grosze
     lineTotal: number; // grosze
 };
 

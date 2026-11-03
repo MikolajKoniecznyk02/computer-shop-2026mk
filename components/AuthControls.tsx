@@ -23,7 +23,7 @@ export default function AuthControls({ user }: { user: { name: string } | null }
                     startTransition(async () => {
                         await authClient.signOut();
                         router.push('/');
-                        router.refresh(); // nawigacja i widoki znów zgodne z sesją serwera
+                        router.refresh();
                     })
                 }
             >
@@ -34,7 +34,7 @@ export default function AuthControls({ user }: { user: { name: string } | null }
                 disabled={pending}
                 onClick={() =>
                     startTransition(async () => {
-                        await authClient.revokeSessions(); // wszystkie sesje tego użytkownika
+                        await authClient.revokeSessions();
                         router.push('/');
                         router.refresh();
                     })

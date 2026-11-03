@@ -27,7 +27,7 @@ export async function getMyOrder(rawNumber: unknown): Promise<DetailResult> {
     return order ? { status: 'ok', order } : { status: 'not-found' };
 }
 
-/** Złożenie zamówienia z koszyka WŁAŚCICIELA SESJI. Przyjmuje tylko klucz żądania. */
+// Złożenie zamówienia z koszyka właściciela. Przyjmuje tylko klucz żądania.
 export async function placeOrder(requestKey: unknown): Promise<CartResult<{ orderNumber: string; replayed: boolean }>> {
     const userId = await currentUserId();
     if (!userId) return fail('UNAUTHENTICATED', 'Zaloguj się, aby złożyć zamówienie.');

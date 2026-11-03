@@ -8,7 +8,7 @@ import { formatDateTime, formatPrice } from '@/lib/products/format';
 export const metadata: Metadata = { title: 'Historia zamówień' };
 
 export default async function OrderHistoryPage() {
-    const result = await getMyOrders(); // wyjątek (awaria bazy) trafia do error.tsx
+    const result = await getMyOrders();
 
     if (result.status === 'unauthenticated') {
         return (

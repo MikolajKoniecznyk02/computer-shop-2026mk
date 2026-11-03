@@ -8,7 +8,7 @@ async function loadUser(): Promise<Loaded> {
         const session = await getCurrentSession();
         return { ok: true, name: session ? session.user.name : null };
     } catch (error) {
-        // Awaria bazy nie może wywrócić całego układu (błąd layoutu nie trafia do error.tsx tego segmentu).
+        // Awaria bazy nie może wywrócić całego układu
         console.error('Nie udało się odczytać sesji:', error);
         return { ok: false };
     }

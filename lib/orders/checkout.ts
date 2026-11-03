@@ -22,19 +22,17 @@ export async function checkoutForUser(userId: string, requestKey: string): Promi
     try {
         return await prisma.$transaction(
             async (tx): Promise<CartResult<Placed>> => {
-                // 1) Blokada wiersza koszyka właściciela: dwa zakupy tego samego użytkownika ustawiają się w kolejce.
+                //Blokada wiersza koszyka właściciela
                 const carts = await tx.$queryRaw<{ id: number }[]>`
           SELECT "id" FROM "Cart" WHERE "userId" = ${userId} FOR UPDATE`;
 
-                // 2) Idempotencja: to samo żądanie (userId + requestKey) zwraca istniejące zamówienie.
-                //    Sprawdzamy PO blokadzie, więc równoległy duplikat widzi zatwierdzone zamówienie.
                 const existing = await tx.order.findFirst({ where: { userId, requestKey }, select: { number: true } });
                 if (existing) return ok({ orderNumber: existing.number, replayed: true });
 
                 if (carts.length === 0) return fail('EMPTY_CART', 'Koszyk jest pusty.');
                 const cartId = carts[0].id;
 
-                // 3) Blokada pozycji koszyka: równoległa zmiana ilości poczeka, a potem nie znajdzie usuniętej pozycji.
+                //Blokada pozycji koszyka
                 await tx.$queryRaw`SELECT "id" FROM "CartItem" WHERE "cartId" = ${cartId} FOR UPDATE`;
                 const items = await tx.cartItem.findMany({
                     where: { cartId },
@@ -65,11 +63,10 @@ export async function checkoutForUser(userId: string, requestKey: string): Promi
                     }
                 }
 
-                // 5) Numer z sekwencji (unikalny także przy równoległych zakupach).
+                //Numer z sekwencji
                 const seq = await tx.$queryRaw<{ n: number }[]>`SELECT nextval('order_number_seq')::int AS n`;
                 const number = `ZAM-${new Date().getUTCFullYear()}-${String(seq[0].n).padStart(4, '0')}`;
 
-                // 6) Snapshot: kod, nazwa i cena z chwili zakupu; ceny w groszach, sumy w BigInt.
                 const lines = items.map((item, index) => ({
                     position: index + 1,
                     productId: item.productId,
@@ -86,7 +83,6 @@ export async function checkoutForUser(userId: string, requestKey: string): Promi
                     select: { number: true },
                 });
 
-                // 7) Czyścimy wyłącznie pozycje tego koszyka (sam koszyk zostaje).
                 await tx.cartItem.deleteMany({ where: { cartId } });
 
                 return ok({ orderNumber: order.number, replayed: false });
@@ -94,12 +90,12 @@ export async function checkoutForUser(userId: string, requestKey: string): Promi
             { timeout: 15_000 },
         );
     } catch (e) {
-        if (e instanceof CheckoutConflict) return fail(e.code, e.message); // transakcja wycofana
+        if (e instanceof CheckoutConflict) return fail(e.code, e.message); 
         if (isUniqueViolation(e)) {
             // ostatnia siatka bezpieczeństwa dla duplikatu klucza
             const existing = await prisma.order.findFirst({ where: { userId, requestKey }, select: { number: true } });
             if (existing) return ok({ orderNumber: existing.number, replayed: true });
         }
-        throw e; // awaria bazy: wyżej zamieniana na bezpieczny komunikat
+        throw e;
     }
 }

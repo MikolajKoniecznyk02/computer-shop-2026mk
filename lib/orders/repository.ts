@@ -23,7 +23,7 @@ export async function getOrdersForUser(userId: string): Promise<OrderSummaryView
     }));
 }
 
-/** Własność jest w tym samym zapytaniu: cudze i nieistniejące zamówienie dają to samo (null). */
+//Własność jest w tym samym zapytaniu: cudze i nieistniejące zamówienie dają to samo (null).
 export async function getOrderForUser(userId: string, number: string): Promise<OrderDetailView | null> {
     const o = await getPrisma().order.findFirst({
         where: { userId, number },

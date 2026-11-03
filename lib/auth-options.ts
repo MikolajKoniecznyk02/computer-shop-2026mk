@@ -6,7 +6,7 @@ function requireEnv(name: string): string {
     return value;
 }
 
-/** Wspólne ustawienia dla aplikacji i CLI. Brak zmiennej = błąd przy konfiguracji (bez rzutowania typu). */
+// Wspólne ustawienia dla aplikacji i CLI. Brak zmiennej = błąd przy konfiguracji (bez rzutowania typu).
 export function createAuthOptions() {
     const secret = requireEnv('BETTER_AUTH_SECRET');
     if (secret.length < 32) throw new Error('BETTER_AUTH_SECRET musi mieć co najmniej 32 znaki');
@@ -24,6 +24,6 @@ export function createAuthOptions() {
         },
         // podstawa: bez cache sesji, żeby unieważnienie w bazie działało od razu
         session: { cookieCache: { enabled: false } },
-        // NIE ustawiamy disableCSRFCheck ani disableOriginCheck
+        // nie ustawiamy disableCSRFCheck ani disableOriginCheck
     } satisfies BetterAuthOptions;
 }
