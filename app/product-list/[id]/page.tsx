@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProductById, getProducts } from '@/lib/products/repository';
+import { getProductById } from '@/lib/products/repository';
 import { parseProductId } from '@/lib/products/id';
 import { TYPE_LABELS, formatPrice, formatDate } from '@/lib/products/format'
 import { connection } from 'next/server';
+import AddToCartButton from '@/components/AddToCartButton';
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -72,6 +73,7 @@ export default async function ProductPage({ params }: Props) {
                 </dd>
                 <dt>Data</dt><dd>{formatDate(product.date)}</dd>
             </dl>
+            <AddToCartButton productId={product.id} amount={product.amount} />
         </article>
     );
 }

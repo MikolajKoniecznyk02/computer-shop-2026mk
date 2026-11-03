@@ -378,3 +378,145 @@ button:hover {
 .detail-list dd {
   margin: 0;
 }
+
+.auth-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+  color: var(--paper);
+  font-family: var(--font-ui);
+}
+
+.site-header button {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.site-header button:hover {
+  background: var(--paper);
+}
+
+.site-header [role='status'],
+.site-header [role='alert'] {
+  color: var(--paper);
+}
+
+.basket-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.basket-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: .75rem 1rem;
+  align-items: start;
+  padding: 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.basket-row h2 {
+  margin: 0 0 .25rem;
+  font-size: 1.05rem;
+}
+
+.basket-row form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  margin-top: .5rem;
+}
+
+.basket-row input[type='number'] {
+  width: 5rem;
+  padding: .4rem;
+  font: inherit;
+}
+
+.basket-total {
+  margin-top: 1.5rem;
+  font-family: var(--font-ui);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.field-error {
+  flex-basis: 100%;
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.form-message {
+  margin: .5rem 0 0;
+  min-height: 1.5rem;
+  font-size: .9rem;
+}
+
+.add-to-cart {
+  margin-top: .75rem;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+
+.order-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.order-card {
+  padding: 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.order-card h2 {
+  margin: 0 0 .25rem;
+  font-size: 1.1rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+}
+
+.order-table caption {
+  text-align: left;
+  padding: .5rem 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.order-table th,
+.order-table td {
+  padding: .6rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--paper-2);
+}
+
+.checkout-form {
+  margin-top: 1rem;
+}

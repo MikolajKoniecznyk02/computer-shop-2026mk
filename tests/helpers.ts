@@ -22,6 +22,7 @@ export function createTestClient(): PrismaClient {
 
 //Czyści dane z bazy testowej i importuje podany zbiór.
 export async function resetCatalog(prisma: PrismaClient, products: readonly Product[]) {
+    await prisma.cartItem.deleteMany();
     await prisma.product.deleteMany();
     await importCatalog(prisma, products);
 }
@@ -49,6 +50,12 @@ export async function resetAll(
     await prisma.cart.deleteMany();
     await prisma.user.deleteMany();
     await resetCatalog(prisma, products);
+    await prisma.verification.deleteMany();
 }
 
 export const createDemoUser = (prisma: PrismaClient) => prisma.user.create({ data: DEMO_USER });
+
+export const createUser = (prisma: PrismaClient, id: string) =>
+    prisma.user.create({
+        data: { id, name: `Użytkownik ${id}`, email: `${id}@example.com`, emailVerified: true },
+    });
